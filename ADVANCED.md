@@ -115,6 +115,13 @@ start consuming events. The `since` parameter can be set with a datetime value t
 (e.g. 2010-01-01T00:00:00Z) or as UNIX epoch (in which case the `numeric_dates` parameter must also be set to `True`.
 By default the `numeric_dates` parameter is set to `False`).
 
+The sample utilizes the `smartsheet_client.Events.list_events` method to request a list of events up to a certain 
+point in the stream. The `to` parameter specifies the endpoint in time (i.e., event occurrence datetime) in the stream 
+up to which events should be retrieved. This `to` parameter can be assigned a datetime value formatted either as 
+ISO 8601 (e.g., 2020-12-31T23:59:59Z) or as UNIX epoch time, in which case the numeric_dates parameter must be set to True. 
+If not specified, the `numeric_dates` parameter defaults to `False`, assuming the datetime is in ISO 8601 format. 
+This allows for precise control over the range of events to be fetched, facilitating efficient data retrieval and processing.
+
 To consume the next list of events after the initial list of events is returned, set the `stream_position` parameter
 with the `next_stream_position` property obtained from the previous request and don't set the `since` parameter with
 any values. This is because when using the `list_events` method, either the `since` parameter or the `stream_position`

@@ -3,7 +3,6 @@ import six
 from datetime import datetime, timedelta
 import smartsheet
 
-
 @pytest.mark.usefixtures("smart_setup")
 class TestEvents:
 
@@ -11,7 +10,9 @@ class TestEvents:
         smart = smart_setup['smart']
 
         last_hour = datetime.now() - timedelta(hours=1)
-        events_list = smart.Events.list_events(since=last_hour.isoformat(), max_count=10)
+        current_time = datetime.now()
+
+        events_list = smart.Events.list_events(since=last_hour.isoformat(), to=current_time.isoformat(), max_count=10)
         assert isinstance(events_list, smart.models.EventResult)
         assert len(events_list.data) <= 10
         for event in events_list.data:
