@@ -106,7 +106,7 @@ smartsheet_client = smartsheet.Smartsheet(proxies=proxies)
 
 ## Event Reporting
 
-The following sample demonstrates best practices for consuming the event stream from the Smartsheet Event Reporting
+The following sample demonstrates best practices for consuming the event stream from the Smartsheet Event Reporting changes
 feature.
 
 The sample uses the `smartsheet_client.Events.list_events` method to request a list of events from the stream. The first
