@@ -46,6 +46,12 @@ class Event:
         if props:
             deserialize(self, props)
 
+            # If additionalDetails is expected to be a complex object and needs to be fully loaded
+            if 'additionalDetails' in props:
+                # Assuming additionalDetails is a dictionary that needs to be fully loaded
+                # At this point additional details has only one level of nesting
+                self._additional_details = props['additionalDetails']
+
         # requests package Response object
         self.request_response = None
         self.__initialized = True
