@@ -23,7 +23,7 @@ Some tests carry requirements. We're testing the real service here, not just usi
 The test suite expects these environment variables to be present:
 
 ```shell
-    export SMARTSHEET_ACCESS_TOKEN="Bearer 3JRm067VUxw1u84MRMHEguCYdn5m8nvFpVhWb"
+    export SMARTSHEET_ACCESS_TOKEN="SSSSSSSSSSSSSSSSSSSSSSSSSS"
     export LOG_CFG="debug" # optional
     export SMARTSHEET_FIXTURE_USERS='{"admin":{"id":9999999999999999},"larry":{"id":0000000000000000},"curly":{"id":1111111111111111},"moe":{"id":2222222222222222}}'
 ```
