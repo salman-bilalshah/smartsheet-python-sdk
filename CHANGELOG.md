@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
-- fix KeyError: 'content-type': https://github.com/smartsheet/smartsheet-python-sdk/issues/43
+- fix for [issue 43](https://github.com/smartsheet/smartsheet-python-sdk/issues/43) KeyError: 'content-type'
 
 ## [3.0.2] - 2023-05-15
 
