@@ -279,16 +279,16 @@ class Smartsheet:
             response.request.url,
         )
         if response.request.body is not None:
-            body_dumps = f'"<< {response.request.headers["Content-Type"]} content type suppressed >>"'
+            body_dumps = f'"<< {response.request.headers.get("Content-Type")} content type suppressed >>"'
             if is_multipart(response.request):
                 body_dumps = '"<< multipart body suppressed >>"'
-            elif "application/json" in response.request.headers["Content-Type"]:
+            elif response.request.headers.get("Content-Type") is not None and "application/json" in response.request.headers.get("Content-Type"):
                 body = response.request.body.decode("utf8")
                 body_dumps = json.dumps(json.loads(body), sort_keys=True)
             self._log.debug('{"requestBody": %s}', body_dumps)
         # response
-        content_dumps = f'"<< {response.headers["Content-Type"]} content type suppressed >>"'
-        if "application/json" in response.headers["Content-Type"]:
+        content_dumps = f'"<< {response.headers.get("Content-Type")} content type suppressed >>"'
+        if response.request.headers.get("Content-Type") is not None and "application/json" in response.headers.get("Content-Type"):
             content = response.content.decode("utf8")
             content_dumps = json.dumps(json.loads(content), sort_keys=True)
         if 200 <= response.status_code <= 299:
