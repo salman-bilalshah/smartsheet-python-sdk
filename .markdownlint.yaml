@@ -1,5 +1,5 @@
 {
   "line-length": false,
-  "no-duplicate-heading",
-    siblings-only: true
+  "no-duplicate-heading":
+    "siblings-only": true
 }
