@@ -30,18 +30,18 @@ class Events:
         self._log = logging.getLogger(__name__)
 
     def list_events(
-        self, since=None, to=None, stream_position=None, max_count=None, numeric_dates=None
+        self, since=None, to=None, stream_position=None, max_count=None, numeric_dates=None # pylint: disable=invalid-name
     ):
         """Get the list of all Events.
 
         Args:
             since (str or long): Starting time for events to return.
                 You must pass in a value for either since or streamPosition and never both.
-            to (str or long): Ending time for events to return. 
-                This parameter specifies the endpoint in time for the events to be fetched. 
-                Similar to the `since` parameter, `to` can be passed in either as a datetime string in 
-                ISO 8601 format or as a UNIX epoch time in milliseconds. This allows for defining a 
-                precise time range for the events query. Note that `to` is optional and can be used in 
+            to (str or long): Ending time for events to return.
+                This parameter specifies the endpoint in time for the events to be fetched.
+                Similar to the `since` parameter, `to` can be passed in either as a datetime string in
+                ISO 8601 format or as a UNIX epoch time in milliseconds. This allows for defining a
+                precise time range for the events query. Note that `to` is optional and can be used in
                 conjunction with `since` to specify both the start and end times for the event retrieval window.
             stream_position (str): Indicates next set of events to return.
                 Use value of nextStreamPosition returned from the previous call.
@@ -62,7 +62,7 @@ class Events:
             _op["query_params"]["since"] = since.isoformat()
         else:
             _op["query_params"]["since"] = since
-        
+
         if isinstance(to, datetime):
             _op["query_params"]["to"] = to.isoformat()
         else:

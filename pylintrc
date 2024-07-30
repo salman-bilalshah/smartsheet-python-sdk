@@ -9,3 +9,6 @@ output-format=colorized
 
 [BASIC]
 include-naming-hint=yes
+
+[FORMAT]
+max-line-length=160
